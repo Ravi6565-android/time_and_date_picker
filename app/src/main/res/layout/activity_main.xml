@@ -34,4 +34,11 @@
        android:id="@+id/timesetbtn"
        android:layout_gravity="center_horizontal"
        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="set date:"
+        android:id="@+id/datesetbtn"
+        android:layout_gravity="center_horizontal"
+        />
 </LinearLayout>

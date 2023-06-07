@@ -33,14 +33,22 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                     hour = hourOfDay;
-                    min = minute;
                     String am_pm;
-//                    if(calendar.get()){
-//                        am_pm="am";
-//                    }else{
-//                        am_pm="pm";
-//                    }
-                    binding.time.setText("" + hour + ":" + min + ":");
+                    min=minute;
+                    if(hour>12){
+                        hour=hour-12;
+                        am_pm="pm";
+                    }else {
+                        am_pm="am";
+                    }
+                    if(hour==12){
+                        am_pm="pm";
+
+                    } else if (hour==0) {
+                        hour=12;
+                        am_pm="am";
+                    }
+                    binding.time.setText("" + hour + ":" + min + ":"+am_pm);
                 }
             }, hour, min, false);
             dialog.show();
@@ -51,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
                     day=i2;
-                    month=i1;
+                    month=i1+1;
                     year=i;
                     binding.date.setText(day+"/"+month+"/"+year);
                 }
